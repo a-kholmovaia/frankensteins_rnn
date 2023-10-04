@@ -6,18 +6,18 @@ import tqdm
 import torch.nn.functional as F
 
 class Trainer:
-    BATCH_SIZE = 64
-    VOCAB_SIZE = 250_000
     def __init__(
             self, model: nn.Module,
             train_dl: DataLoader, val_dl: DataLoader,
+            batch_size: int = 64, vocab_size: int=50_000,
             file_path: str = "results.csv") -> None:
         self.file_path = file_path
         self.init_df()
         self.model = model
         self.train_dl = train_dl
         self.val_dl = val_dl
-        self.configure_loss()
+        self.batch_size = batch_size
+        self.vocab_size = vocab_size
         self.configure_optimizer()
 
 
@@ -39,6 +39,7 @@ class Trainer:
 
     def train(self, epochs:int):
         for epoch in range(1, epochs+1):
+            train_loss = 0.
             with tqdm.tqdm(self.train_dl, unit="batch") as tepoch:
                 for Xbatch, ybatch in tepoch:
                     tepoch.set_description(f"Epoch {epoch}")
@@ -56,11 +57,11 @@ class Trainer:
             file = open(self.file_path, "a")
             file.write(f"{epoch}, {train_loss}, {val_loss}, {val_acc}\n")
 
-    def configure_loss(self, pred, target):
-         return F.cross_entropy(pred.view(-1, self.VOCAB_SIZE), target.view(-1))
+    def loss_fn(self, pred, target):
+         return F.cross_entropy(pred.view(-1, self.vocab_size), target.view(-1))
 
     def configure_optimizer(self):
-         self.optimizer = torch.optim.Adam(self.parameters, lr=0.001)
+         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
     
     def init_df(self):
         file = open(self.file_path, "a")

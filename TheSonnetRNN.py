@@ -10,8 +10,8 @@ class TheSonnetsRNN(nn.Module):
         self.n_units_h2 = n_units_h2
 
         self.seq_len = seq_len
-        self.h1 = torch.zeroes(1, n_units_h1)
-        self.h2 = torch.zeroes(1, n_units_h2)
+        self.h1 = torch.zeros(1, n_units_h1)
+        self.h2 = torch.zeros(1, n_units_h2)
         self.embedding = nn.Embedding(vocab_size, n_units_h1)
         self.ih1 = RNNLayerTorch(n_units_h1, n_units_h1)
         self.h1h2 = RNNLayerTorch(n_units_h2, n_units_h2)

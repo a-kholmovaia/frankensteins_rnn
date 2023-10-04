@@ -17,8 +17,9 @@ class RNNLayerTorch(nn.Module):
         self.w_hh = nn.Parameter(w_hh)
 
         # initialize weights and biases
-        nn.init.kaiming_uniform_(self.weights, a=math.sqrt(5)) # weight init
-        fan_in, _ = nn.init._calculate_fan_in_and_fan_out(self.weights)
+        nn.init.kaiming_uniform_(self.w_hh, a=math.sqrt(5)) # weight init
+        nn.init.kaiming_uniform_(self.w_hx, a=math.sqrt(5)) # weight init
+        fan_in, _ = nn.init._calculate_fan_in_and_fan_out(self.w_hx)
         bound = 1 / math.sqrt(fan_in)
         nn.init.uniform_(self.bias, -bound, bound)  # bias init
 
