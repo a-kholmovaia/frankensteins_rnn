@@ -1,0 +1,3 @@
+- [ ] write TheSonnetRNN class in pytorch
+- [ ] write TheSonnetRNN class in JAX
+- [ ] finish data preprocessing functions (output: DataLoader with X, y)
