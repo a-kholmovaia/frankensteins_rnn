@@ -5,4 +5,4 @@ torch==2.0.1+cu118
 tqdm==4.66.1
 requests
 spacy
-torchtext
+torchtext >= 0.10.0
