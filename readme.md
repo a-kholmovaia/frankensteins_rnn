@@ -7,4 +7,4 @@ A custom implementation of RNN's architecture from scratch with pytorch. The RNN
 ![](imgs/train_loss.png)
 ![](imgs/val_loss.png)
 
-Although the implemetation seems to work, it's also clear that the custom network gets overfitted very fast, so the default architecture isn't powerful enough to learn any patterns from the text. 
+Although the implemetation seems to work, it's also clear that the custom network gets overfitted very fast, so the default architecture isn't powerful enough to learn any pattern from the text. 
