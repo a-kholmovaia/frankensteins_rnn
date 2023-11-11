@@ -2,7 +2,7 @@
 
 ![generated with d-id.com](imgs/frankensteins_robot.png)
 
-A custom implementation of RNN's architecture from scratch with pytorch. The RNN with 2 hidden layers was trained on Mary Shelley's Frankenstein for predicting next token. The performance of the RNN was compared to a LSTM network.
+A custom implementation of the RNN architecture from scratch with pytorch. The 2 hidden layer RNN was trained on Mary Shelley's novel Frankenstein to predict the next token. The performance of the RNN was compared with an LSTM network.
 
 ![](imgs/train_loss.png)
 ![](imgs/val_loss.png)
