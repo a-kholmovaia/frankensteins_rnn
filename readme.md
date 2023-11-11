@@ -1,6 +1,6 @@
 # RNN from Scratch 
 
-![](imgs/frankensteins_robot.png)
+![generated with d-id.com](imgs/frankensteins_robot.png)
 
 A custom implementation of RNN's architecture from scratch with pytorch. The RNN with 2 hidden layers was trained on Mary Shelley's Frankenstein for predicting next token. The performance of the RNN was compared to a LSTM network.
 
