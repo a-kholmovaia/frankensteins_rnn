@@ -1,8 +1,7 @@
-fastai==2.7.12
-pandas==1.5.3
+pandas
+tqdm
+spacy
+
 --extra-index-url https://download.pytorch.org/whl/cu118
 torch==2.0.1+cu118
-tqdm==4.66.1
-requests
-spacy
-torchtext >= 0.10.0
+torchtext

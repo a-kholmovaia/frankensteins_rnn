@@ -10,6 +10,6 @@ pip3 install -r requirements.txt
 # download english model from spacy
 python3 -m spacy download en_core_web_sm
 # Run the script
-# python3 $script_path
+python3 $script_path
 # deactivate the virtual environment
 source deactivate
