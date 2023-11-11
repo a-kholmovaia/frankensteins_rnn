@@ -5,7 +5,6 @@ from torch.utils.data import DataLoader
 import tqdm
 import torch.nn.functional as F
 from FrankensteinDataset import FrankensteinDataSet
-from FrankensteinsRNN import FrankensteinsRNN
 
 
 class Trainer:
@@ -50,14 +49,13 @@ class Trainer:
                     train_loss = self.train_step(Xbatch.cuda(), ybatch.cuda())
                     tepoch.set_postfix(loss=train_loss)
             val_loss = 0.
-            val_acc = 0.
             for _, (X_val_batch, y_val_batch) in enumerate(self.val_dl):
                 test_loss =self.val_step(X_val_batch.cuda(),
                                         y_val_batch.cuda())
                 val_loss += test_loss
             val_loss /= self.len_val
             file = open(self.file_path, "a")
-            file.write(f"{epoch}, {train_loss}, {val_loss}, {val_acc}\n")
+            file.write(f"{epoch}, {train_loss}, {val_loss}\n")
 
 
     def loss_fn(self, pred, target):
@@ -73,8 +71,8 @@ class Trainer:
         return target_
 
     def configure_optimizer(self):
-        self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
+        self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.1e-4)
 
     def init_df(self):
         file = open(self.file_path, "a")
-        file.write("Epoch, Train_Loss, Val_Loss, Test_Accuracy\n")
+        file.write("Epoch, Train_Loss, Val_Loss\n")

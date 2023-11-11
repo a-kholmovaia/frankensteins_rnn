@@ -1,9 +1,10 @@
-- [ ] create Dataloaders 
-- [ ] rewrite training loop (modify bp into truncated bp through time)
-- [ ] train & visualize
-- [ ] implement lstm
-- [ ] train & visualize
+# RNN from Scratch 
 
-Help Resources:
-https://github.com/keitakurita/practical-torchtext/blob/master/Lesson%202%20torchtext%20for%20language%20modeling.ipynb
-https://stackoverflow.com/questions/53912956/truncated-backpropagation-through-time-bptt-in-pytorch
+![](imgs/frankensteins_robot.png)
+
+A custom implementation of RNN's architecture from scratch with pytorch. The RNN with 2 hidden layers was trained on Mary Shelley's Frankenstein for predicting next token. The performance of the RNN was compared to a LSTM network.
+
+![](imgs/train_loss.png)
+![](imgs/val_loss.png)
+
+Although the implemetation seems to work, it's also clear that the custom network gets overfitted very fast, so the default architecture isn't powerful enough to learn any patterns from the text. 

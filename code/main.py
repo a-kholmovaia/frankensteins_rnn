@@ -13,11 +13,12 @@ if __name__ == '__main__':
         n_units_h1=256, n_units_h2=512, 
         vocab_size=dataset_train.vocab_size, seq_len=dataset_train.PAD_SIZE
         )
-    trainer_rnn_custom = Trainer(
-        model_rnn, dataset_train, dataset_val, 
-        vocab_size=dataset_train.vocab_size)
-    print('Initialised')
-    #trainer_rnn_custom.train(10)
+    #trainer_rnn_custom = Trainer(
+    #    model_rnn, dataset_train, dataset_val, 
+    #    vocab_size=dataset_train.vocab_size,
+    #    file_path='results_custom_rnn.csv')
+    #print('Initialised Custom RNN')
+    #trainer_rnn_custom.train(15)
 
     model_lstm = LSTM(
         embedding_dim=256, num_layers=4, 
@@ -26,6 +27,6 @@ if __name__ == '__main__':
     trainer_lstm = Trainer(
         model_lstm, dataset_train, dataset_val, 
         vocab_size= dataset_train.vocab_size,
-        file_path='results_lstm.csv')
+        file_path='results_lstm_full.csv')
     print('Initialised LSTM')
-    trainer_lstm.train(40)
+    trainer_lstm.train(100)

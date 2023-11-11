@@ -1,5 +1,5 @@
 #!/bin/bash
-script_path="main.py"
+script_path="code/main.py"
 env_name='rnns'
 
 # tell the shell to use the created virtual environment
